@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void SymptonCheck(View view) {
+        startActivity(new Intent(getApplicationContext(),symptomCheck.class));
+        finish();
+    }
+
     }
 
 

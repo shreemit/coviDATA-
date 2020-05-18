@@ -27,6 +27,15 @@
         android:text="Log out"
         android:onClick="logout"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/symCH"
+        android:text="Sympton Check"
+        android:onClick="SymptonCheck"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        />
 
 
 
