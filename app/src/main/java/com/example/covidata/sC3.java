@@ -14,9 +14,9 @@ public class sC3 extends AppCompatActivity {
         setContentView(R.layout.activity_s_c3);
 
 
-        tv = findViewById(R.id.tvres);
-        tv2 = findViewById(R.id.tvres2);
-        tv3 = findViewById(R.id.tvres3);
+        tv = (TextView)findViewById(R.id.tvres);
+        tv2 = (TextView)findViewById(R.id.tvres2);
+        tv3 = (TextView)findViewById(R.id.tvres3);
         // btnRestart = (Button) findViewById(R.id.btnRestart);
 
         StringBuilder sb = new StringBuilder();
@@ -25,8 +25,6 @@ public class sC3 extends AppCompatActivity {
         else
             sb.append("LOWER RISK OF COVID-19 : ").append("N0").append("\n");
         StringBuilder sb2 = new StringBuilder();
-
-
         if((symptomCheck.wrong1+sC2.wrong2)>=6)
             sb2.append("HIGHER RISK OF COVID-19 : ").append("YES").append("\n");
         else

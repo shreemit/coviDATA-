@@ -13,7 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="24dp"
         android:layout_marginTop="31dp"
-        android:text="symptom_checker"
+        android:text="@string/symptom_checker"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/accent_material_light"
         tools:ignore="PrivateResource" />
@@ -32,7 +32,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="a"
+            android:text="@string/a"
             android:textSize="20sp"
             android:id="@+id/radioButton"
             android:checked="false"
@@ -41,7 +41,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="b"
+            android:text="@string/b"
             android:textSize="20sp"
             android:id="@+id/radioButton2"
             android:checked="false" />
@@ -49,17 +49,16 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c"
+            android:text="@string/c"
             android:textSize="20sp"
             android:id="@+id/radioButton3"
             android:checked="false"/>
 
 
-
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="d"
+            android:text="@string/d"
             android:textSize="20sp"
             android:id="@+id/radioButton4"
             android:checked="false"/>
@@ -67,7 +66,7 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="e"
+            android:text="@string/e"
             android:textSize="20sp"
             android:id="@+id/radioButton5"
             android:checked="false"/>
@@ -84,7 +83,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginEnd="100dp"
         android:background="#FF5722"
-        android:text="next_question"
+        android:text="@string/next_question"
         android:textColor="#ffffff" />
 
     <TextView
@@ -95,8 +94,9 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="80dp"
-        android:text="questions"
+        android:text="@string/questions"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
 
 
 </RelativeLayout>

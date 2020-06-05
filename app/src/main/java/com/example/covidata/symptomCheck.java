@@ -18,11 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Arrays;
 
 public class symptomCheck extends AppCompatActivity {
-    public static int marks1, correct1, wrong1;
     TextView tv;
     Button submitbutton, quitbutton;
     RadioGroup radio_g;
-    RadioButton rb1, rb2, rb3, rb4, rb5;
+    RadioButton rb1,rb2,rb3,rb4,rb5;
+
     String[] questions = {
 
             "Are u experiencing any of these following Symptoms?",
@@ -31,37 +31,42 @@ public class symptomCheck extends AppCompatActivity {
             "Did you have any of these following health Conditions Before?",
 
     };
-    String[] answers = {"None of the Above*", "None of the Above", "None of the Above", "None of the Above"};
-    String[] opt = {
-            "Dry Cough", "High Fever", "Difficulty in Breathing", "All of the Above", "None of the Above",
-            "Diabetes", "Hypertension", "Lung Disease", "All of the Above", "None of the Above",
-            "Headache", "Running Nose", "Sore Throat", "All of the Above", "None of the Above",
-            "Asthma", "Cancer", "Heart Disease", "All of the Above", "None of the Above"
+
+    String[] answers = {"None of the Above*","None of the Above","None of the Above","None of the Above"};
+    String[] opt ={
+            "Dry Cough","High Fever","Difficulty in Breathing","All of the Above","None of the Above",
+            "Diabetes","Hypertension","Lung Disease","All of the Above","None of the Above",
+            "Headache","Running Nose","Sore Throat","All of the Above","None of the Above",
+            "Asthma","Cancer","Heart Disease","All of the Above","None of the Above"
 
     };
-    int flag = 0;
 
+
+    int flag=0;
+    public static int marks1,correct1,wrong1;
+    public static int marks,correct,wrong;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_symptom_check);
 
 
-        TextView textView = findViewById(R.id.DispName);
-        final Intent intent = getIntent();
+        TextView textView=(TextView)findViewById(R.id.DispName);
+        //final Intent intent = getIntent();
 
         textView.setText("SYMPTOM CHECKER");
 
-        submitbutton = findViewById(R.id.button3);
-        tv = findViewById(R.id.tvque);
+        submitbutton=(Button)findViewById(R.id.button3);
+        //quitbutton=(Button)findViewById(R.id.buttonquit);
+        tv=(TextView) findViewById(R.id.tvque);
 
-        radio_g = findViewById(R.id.answersgrp);
-        rb1 = findViewById(R.id.radioButton);
-        rb2 = findViewById(R.id.radioButton2);
-        rb3 = findViewById(R.id.radioButton3);
-        rb4 = findViewById(R.id.radioButton4);
-        rb5 = findViewById(R.id.radioButton5);
+        radio_g=(RadioGroup)findViewById(R.id.answersgrp);
+        rb1=(RadioButton)findViewById(R.id.radioButton);
+        rb2=(RadioButton)findViewById(R.id.radioButton2);
+        rb3=(RadioButton)findViewById(R.id.radioButton3);
+        rb4=(RadioButton)findViewById(R.id.radioButton4);
+        rb5=(RadioButton)findViewById(R.id.radioButton5);
         tv.setText(questions[flag]);
         rb1.setText(opt[0]);
         rb2.setText(opt[1]);
@@ -72,41 +77,53 @@ public class symptomCheck extends AppCompatActivity {
         submitbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //int color = mBackgroundColor.getColor();
+                //mLayout.setBackgroundColor(color);
 
-                if (radio_g.getCheckedRadioButtonId() == -1) {
+                if(radio_g.getCheckedRadioButtonId()==-1)
+                {
                     Toast.makeText(getApplicationContext(), "Please select one choice", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                RadioButton uans = findViewById(radio_g.getCheckedRadioButtonId());
+                RadioButton uans = (RadioButton) findViewById(radio_g.getCheckedRadioButtonId());
                 String ansText = uans.getText().toString();
                 Toast.makeText(getApplicationContext(), ansText, Toast.LENGTH_SHORT).show();
-                if (ansText.equals(answers[flag])) {
+                if(ansText.equals(answers[flag])) {
                     correct1++;
                     Toast.makeText(getApplicationContext(), "Safe", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else {
                     wrong1++;
                     Toast.makeText(getApplicationContext(), "Next", Toast.LENGTH_SHORT).show();
                 }
 
                 flag++;
 
-                if (flag < questions.length) {
+                // if (score != null)
+                //score.setText(""+correct1);
+
+                if(flag<questions.length)
+                {
                     tv.setText(questions[flag]);
-                    rb1.setText(opt[flag * 5]);
-                    rb2.setText(opt[(flag * 5) + 1]);
-                    rb3.setText(opt[(flag * 5) + 2]);
-                    rb4.setText(opt[(flag * 5) + 3]);
-                    rb5.setText(opt[(flag * 5) + 4]);
+                    rb1.setText(opt[flag*5]);
+                    rb2.setText(opt[(flag*5)+1]);
+                    rb3.setText(opt[(flag*5)+2]);
+                    rb4.setText(opt[(flag*5)+3]);
+                    rb5.setText(opt[(flag*5)+4]);
+
                 }
                 else
                 {
-                    marks1 = correct1;
-                    Intent intent = new Intent(getApplicationContext(), sC2.class);
+                    marks1=correct1;
+                    Intent intent = new Intent(getApplicationContext(),sC2.class);
                     startActivity(intent);
                 }
+
                 radio_g.clearCheck();
             }
         });
+
+
     }
 }
 
