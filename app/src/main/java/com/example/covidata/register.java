@@ -176,7 +176,7 @@ public class register extends AppCompatActivity {
         {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),login.class));
+                startActivity(new Intent(getApplicationContext(),familyDetails.class));
             }
         });
 
