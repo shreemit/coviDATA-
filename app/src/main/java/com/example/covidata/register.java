@@ -51,6 +51,7 @@ public class register extends AppCompatActivity {
         mRegisterBtn= findViewById(R.id.registerBtn);
         mLoginBtn   = findViewById(R.id.createText);
         fAuth       = FirebaseAuth.getInstance();
+        fStore      = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
 
         //Function to go to MainActivity class
@@ -152,10 +153,8 @@ public class register extends AppCompatActivity {
                                 }
                             });
 
-
-                            Toast.makeText(register.this,"Succesfully Added to the Database",Toast.LENGTH_LONG);
-
-                            startActivity(new Intent(getApplicationContext(),symptomCheck.class));
+//                            Toast.makeText(register.this,"Succesfully Added to the Database",Toast.LENGTH_LONG);
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
                         }
                         else

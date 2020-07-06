@@ -17,11 +17,19 @@ public class sC3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_s_c3);
 
-
+        exit=findViewById(R.id.exit);
         tv = (TextView)findViewById(R.id.tvres);
         tv2 = (TextView)findViewById(R.id.tvres2);
         tv3 = (TextView)findViewById(R.id.tvres3);
         // btnRestart = (Button) findViewById(R.id.btnRestart);
+
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
 
         StringBuilder sb = new StringBuilder();
         if((symptomCheck.correct1+sC2.correct2)>=5)
@@ -42,12 +50,6 @@ public class sC3 extends AppCompatActivity {
         tv2.setText(sb2);
         tv3.setText(sb3);
 
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            }
-        });
 
     }
 
