@@ -85,14 +85,12 @@ public class sC2 extends AppCompatActivity {
                 }
                 RadioButton uans = (RadioButton) findViewById(radio_g.getCheckedRadioButtonId());
                 String ansText = uans.getText().toString();
-                Toast.makeText(getApplicationContext(), ansText, Toast.LENGTH_SHORT).show();
                 if(ansText.equals(answers[flag])) {
                     correct2++;
-                    Toast.makeText(getApplicationContext(), "Safe", Toast.LENGTH_SHORT).show();
+
                 }
                 else {
                     wrong2++;
-                    Toast.makeText(getApplicationContext(), "Next", Toast.LENGTH_SHORT).show();
                 }
 
                 flag++;

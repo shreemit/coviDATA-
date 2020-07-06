@@ -30,12 +30,16 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(MainActivity.this, "Firebase connection successful", Toast.LENGTH_LONG).show();
         logoutButton=findViewById(R.id.buttonLog);
     }
+
+    //Function to logout firebase account
     public void logout(View view) {
         FirebaseAuth.getInstance().signOut();//logout
         startActivity(new Intent(getApplicationContext(),login.class));
         finish();
     }
 
+
+    //Function to go to the symptom checker page
     public void SymptonCheck(View view) {
 
         startActivity(new Intent(getApplicationContext(),symptomCheck.class));

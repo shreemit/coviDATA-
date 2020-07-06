@@ -37,8 +37,8 @@ public class register extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseFirestore fStore;
     String userID;
-    DatabaseReference reff;
-    Member member;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,16 +50,17 @@ public class register extends AppCompatActivity {
         mPhone      = findViewById(R.id.phone);
         mRegisterBtn= findViewById(R.id.registerBtn);
         mLoginBtn   = findViewById(R.id.createText);
-        reff        = FirebaseDatabase.getInstance().getReference().child("Member");
         fAuth       = FirebaseAuth.getInstance();
-        fStore      = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
-        member      = new Member();
+
+        //Function to go to MainActivity class
         if(fAuth.getCurrentUser() != null){
             startActivity(new Intent(getApplicationContext(),MainActivity.class));
             finish();
         }
 
+
+        //Function which gets executed on clicking of register button
         mRegisterBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -71,13 +72,14 @@ public class register extends AppCompatActivity {
                 final String fullName = mFullName.getText().toString();
                 final String phone    = mPhone.getText().toString();
 
+                //Checking the validity of the input given in the fields
                 if (TextUtils.isEmpty(fullName)) {
                     mFullName.setError("Full Name is Required.");
                     return;
                 }
 
                 if (TextUtils.isEmpty(phone)) {
-                    mFullName.setError("Phone Number is Required.");
+                    mPhone.setError("Phone Number is Required.");
                     return;
                 }
                 if(TextUtils.isEmpty(email))
@@ -106,8 +108,7 @@ public class register extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
-                // register the user in firebase
-
+                //Register the user in firebase
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
                 {
                     @Override
@@ -151,13 +152,10 @@ public class register extends AppCompatActivity {
                                 }
                             });
 
-                            member.setName(fullName);
-                            member.setEmail(email);
-                            member.setPhNo(phone);
-                            reff.push().setValue(member);
+
                             Toast.makeText(register.this,"Succesfully Added to the Database",Toast.LENGTH_LONG);
 
-                            startActivity(new Intent(getApplicationContext(),familyDetails.class));
+                            startActivity(new Intent(getApplicationContext(),symptomCheck.class));
 
                         }
                         else
@@ -171,12 +169,12 @@ public class register extends AppCompatActivity {
         });
 
 
-
+        //Function to go to login page
         mLoginBtn.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),familyDetails.class));
+                startActivity(new Intent(getApplicationContext(),login.class));
             }
         });
 
