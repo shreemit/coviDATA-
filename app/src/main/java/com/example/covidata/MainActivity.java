@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,7 +15,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -27,8 +32,20 @@ public class MainActivity extends AppCompatActivity {
         //Toolbar for Logout Button
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        VideoView videoView=findViewById(R.id.video_view);
+        videoView.setVisibility(View.VISIBLE);
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.sample_video2;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        MediaController mediaController = new MediaController(this);
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+
         Toast.makeText(MainActivity.this, "Firebase connection successful", Toast.LENGTH_LONG).show();
         logoutButton=findViewById(R.id.buttonLog);
+
     }
 
     //Function to logout firebase account
