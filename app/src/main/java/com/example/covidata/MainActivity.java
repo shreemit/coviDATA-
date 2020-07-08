@@ -32,20 +32,8 @@ public class MainActivity extends AppCompatActivity {
         //Toolbar for Logout Button
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        VideoView videoView=findViewById(R.id.video_view);
-        videoView.setVisibility(View.VISIBLE);
-        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.sample_video2;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
-        MediaController mediaController = new MediaController(this);
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
-
         Toast.makeText(MainActivity.this, "Firebase connection successful", Toast.LENGTH_LONG).show();
         logoutButton=findViewById(R.id.buttonLog);
-
     }
 
     //Function to logout firebase account

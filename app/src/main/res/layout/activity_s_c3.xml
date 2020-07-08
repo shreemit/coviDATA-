@@ -7,53 +7,36 @@
     tools:context=".sC3">
 
     <TextView
-        android:id="@+id/tvres"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="2dp"
-        android:background="#76FF03"
-        android:text="Large Text"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000000"
-        android:textSize="24sp" />
+        android:layout_height="100dp"
+        android:paddingBottom="50dp"
+        android:text="For Better immunity against Covid-19"
+        android:textSize="25dp"
+        />
+
+    <FrameLayout
+        android:id="@+id/frame_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="110dp"
+        >
+
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+    </FrameLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/tvres2"
-        android:background="#F44336"
-        android:layout_below="@+id/tvres"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="31dp"
-        android:layout_alignParentEnd="true"
-        android:textColor="#000000"
-        android:textAlignment="center"
-        android:textSize="24sp"/>
+        android:id="@+id/bottom_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame_view"
+        android:textSize="25dp"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/tvres3"
-        android:background="#FFEB3B"
-        android:layout_below="@+id/tvres2"
-        android:layout_marginTop="31dp"
-        android:layout_alignEnd="@+id/tvres2"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#000000"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+
+        />
+
 
     <Button
         android:id="@+id/exit"
@@ -63,6 +46,8 @@
         android:layout_centerHorizontal="true"
         android:text="exit"
         />
+
+
 
 
 </RelativeLayout>
